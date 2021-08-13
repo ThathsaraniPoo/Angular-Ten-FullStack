@@ -36,8 +36,15 @@ employee:Employee = new Employee();
 
     })
   }
+
+
+
   saveEmployee(){
-    this.employeeService.createEmployee(this.employee).subscribe(data =>{
+    const emp: Employee ={
+      emailId: this.createTypesForm.value.emailId, firstName: this.createTypesForm.value.emailId, lastName: this.createTypesForm.value.emailId
+
+    }
+    this.employeeService.createEmployee(emp).subscribe(data =>{
       console.log(data)
         this.gotoEmployeeList()
     },

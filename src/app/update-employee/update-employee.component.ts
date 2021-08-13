@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Employee} from "../employee";
 import {EmployeeService} from "../employee.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-update-employee',
@@ -9,11 +10,13 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./update-employee.component.css']
 })
 export class UpdateEmployeeComponent implements OnInit {
+  updateTypesForm!:FormGroup;
   id: any | undefined;
   employee:Employee = new Employee();
   constructor(private employeeService:EmployeeService,
               private route:ActivatedRoute,
-              private router:Router) { }
+              private router:Router,
+              private fbd:FormBuilder) { }
 
   ngOnInit(): void {
    this.id=this.route.snapshot.params['id']
