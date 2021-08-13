@@ -41,7 +41,7 @@ employee:Employee = new Employee();
 
   saveEmployee(){
     const emp: Employee ={
-      emailId: this.createTypesForm.value.emailId, firstName: this.createTypesForm.value.emailId, lastName: this.createTypesForm.value.emailId
+      emailId: this.createTypesForm.value.emailId, firstName: this.createTypesForm.value.firstName, lastName: this.createTypesForm.value.lastName
 
     }
     this.employeeService.createEmployee(emp).subscribe(data =>{
