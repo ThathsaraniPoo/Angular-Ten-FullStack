@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Employee} from "../employee";
 import {EmployeeService} from "../employee.service";
 import {Router} from "@angular/router";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 
 @Component({
@@ -10,11 +11,30 @@ import {Router} from "@angular/router";
   styleUrls: ['./create-employee.component.css']
 })
 export class CreateEmployeeComponent implements OnInit {
+  createTypesForm!:FormGroup;
 employee:Employee = new Employee();
   constructor(private employeeService:EmployeeService,
-              private router:Router) { }
+              private router:Router,private fbc:FormBuilder) { }
 
   ngOnInit(): void {
+    this.createTypesForm = this.fbc.group({
+      'firstName': new FormControl('',Validators.compose([
+        Validators.required,
+        Validators.min(10),
+
+      ])),
+      'lastName': new FormControl('',Validators.compose([
+        Validators.required,
+        Validators.min(10),
+
+      ])),
+      'emailId': new FormControl('',Validators.compose([
+        Validators.required,
+        Validators.min(10),
+        Validators.email
+      ])),
+
+    })
   }
   saveEmployee(){
     this.employeeService.createEmployee(this.employee).subscribe(data =>{

@@ -4,9 +4,11 @@ import {EmployeeListComponent} from "./employee-list/employee-list.component";
 import {CreateEmployeeComponent} from "./create-employee/create-employee.component";
 import {UpdateEmployeeComponent} from "./update-employee/update-employee.component";
 import {VeiwEmployeeComponent} from "./veiw-employee/veiw-employee.component";
+import {ReactiveExampleComponent} from "./reactive-example/reactive-example.component";
 
 const routes: Routes = [
   {path :'employees', component : EmployeeListComponent},
+  {path :'reactive-example', component : ReactiveExampleComponent},
   {path :'create-employee', component : CreateEmployeeComponent},
   {path :'update-employee/:id', component : UpdateEmployeeComponent},
   {path :'view-employee/:id', component : VeiwEmployeeComponent},

@@ -1,26 +1,35 @@
 
 <div class="col-md-6 offset-md-3">
   <h3 style="margin: 2rem">Create Employee</h3>
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" [formGroup]="createTypesForm">
   <div class="form-group">
     <label>First Name</label>
     <input type ="text" class="form-control" id="firstName"
-           [(ngModel)]="employee.firstName" name="firstName">
+           name="firstName" formControlName="firstName" >
+    <div  *ngIf="createTypesForm.controls.firstName.invalid && (createTypesForm.controls.firstName.touched
+                        || createTypesForm.controls.firstName.dirty)" style=" color: crimson; font-size: small">* First name is required</div>
   </div>
 
   <div class="form-group">
     <label>Last Name</label>
     <input type ="text" class="form-control" id="lastName"
-           [(ngModel)]="employee.lastName" name="lastName">
+           name="lastName" formControlName="lastName" >
+
+    <div  *ngIf="createTypesForm.controls.firstName.invalid && (createTypesForm.controls.firstName.touched
+                        || createTypesForm.controls.firstName.dirty)" style=" color: crimson; font-size: small">* Last name is required</div>
+
+
   </div>
 
   <div class="form-group">
     <label>Email Id</label>
     <input type ="text" class="form-control" id="emailId"
-           [(ngModel)]="employee.emailId" name="emailId">
+            name="emailId" formControlName="emailId" style="color: crimson">
+    <div  *ngIf="createTypesForm.controls.emailId.invalid && (createTypesForm.controls.emailID.touched
+                        || createTypesForm.controls.emailId.dirty)" style=" color: crimson; font-size: small">* email ID is required</div>
   </div>
 
-  <button class="btn btn-success" type ="submit" style="margin-top: 3rem">Submit</button>
+  <button class="btn btn-success" type ="submit" style="margin-top: 3rem" [disabled]="!createTypesForm.valid">Submit</button>
 
 
 </form>

@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { CreateEmployeeComponent } from './create-employee/create-employee.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule,ReactiveFormsModule} from "@angular/forms";
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { VeiwEmployeeComponent } from './veiw-employee/veiw-employee.component';
+import { ReactiveExampleComponent } from './reactive-example/reactive-example.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +18,15 @@ import { VeiwEmployeeComponent } from './veiw-employee/veiw-employee.component';
     CreateEmployeeComponent,
     UpdateEmployeeComponent,
     VeiwEmployeeComponent,
+    ReactiveExampleComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
