@@ -1,4 +1,5 @@
 <h2>Employee List</h2>
+<div>
 <table class="table table-striped" id="example">
   <thead>
   <tr>
@@ -10,7 +11,10 @@
   </thead>
   <tbody>
   </tbody>
-  <tr *ngFor="let employee of employees">
+  <tr *ngFor="let employee of employees | paginate: { itemsPerPage: 5,
+   currentPage: page,
+    totalItems:totalLength
+    }">
     <td>{{employee.firstName}}</td>
     <td>{{employee.lastName}}</td>
     <td>{{employee.emailId}}</td>
@@ -20,4 +24,7 @@
       <button (click)="viewEmployee(employee.id)" class="btn btn-dark" style="color: chartreuse" >View</button>
     </td>
   </tr>
+
   </table>
+  <pagination-controls (pageChange)="page = $event" class="text-center my-pagination" ></pagination-controls>
+</div>

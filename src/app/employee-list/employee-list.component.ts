@@ -9,20 +9,20 @@ import {Router} from "@angular/router";
   styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent implements OnInit {
-employees: Employee[] | undefined;
+employees!: Employee[];
   constructor(private employeeService: EmployeeService,
               private router:Router) { }
+totalLength: any;
+  page:number=1;
+
 
   ngOnInit(): void {
     this.getEmployees();
-    $(function(){
-  $('#example').DataTable();
-});
-
   }
  private getEmployees(){
     this.employeeService.getEmployeeList().subscribe(emp => {
       this.employees = emp;
+      this.totalLength= emp.length;
     }
     )
  }
