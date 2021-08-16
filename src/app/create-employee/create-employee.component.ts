@@ -41,7 +41,8 @@ employee:Employee = new Employee();
 
   saveEmployee(){
     const emp: Employee ={
-      emailId: this.createTypesForm.value.emailId, firstName: this.createTypesForm.value.firstName, lastName: this.createTypesForm.value.lastName
+      emailId: this.createTypesForm.value.emailId, firstName: this.createTypesForm.value.firstName,
+      lastName: this.createTypesForm.value.lastName
 
     }
     this.employeeService.createEmployee(emp).subscribe(data =>{
@@ -59,5 +60,8 @@ employee:Employee = new Employee();
   onSubmit(){
   console.log(this.employee)
     this.saveEmployee()
+  }
+  resetm(){
+    this.createTypesForm.reset()
   }
 }

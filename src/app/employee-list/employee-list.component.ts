@@ -15,6 +15,10 @@ employees: Employee[] | undefined;
 
   ngOnInit(): void {
     this.getEmployees();
+    $(function(){
+  $('#example').DataTable();
+});
+
   }
  private getEmployees(){
     this.employeeService.getEmployeeList().subscribe(emp => {

@@ -10,6 +10,8 @@ import {FormsModule,ReactiveFormsModule} from "@angular/forms";
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { VeiwEmployeeComponent } from './veiw-employee/veiw-employee.component';
 import { ReactiveExampleComponent } from './reactive-example/reactive-example.component';
+import {DataTablesModule} from "angular-datatables";
+import {NgxPaginationModule} from "ngx-pagination";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ReactiveExampleComponent } from './reactive-example/reactive-example.co
     NgbModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DataTablesModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

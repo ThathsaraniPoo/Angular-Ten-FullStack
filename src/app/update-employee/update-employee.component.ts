@@ -11,9 +11,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class UpdateEmployeeComponent implements OnInit {
   updateTypesForm!:FormGroup;
-
   id: any | undefined;
-  employee:Employee = new Employee();
+
   constructor(private employeeService:EmployeeService,
               private route:ActivatedRoute,
               private router:Router,
@@ -45,19 +44,15 @@ export class UpdateEmployeeComponent implements OnInit {
         Validators.min(10),
         Validators.email
       ])),
-
     })
-
-
-
   }
-
 
   onSubmit(){
     const empo: Employee ={
-      emailId: this.updateTypesForm.value.emailId, firstName: this.updateTypesForm.value.firstName, lastName: this.updateTypesForm.value.lastName
-
+      emailId: this.updateTypesForm.value.emailId, firstName: this.updateTypesForm.value.firstName,
+      lastName: this.updateTypesForm.value.lastName
     }
+
     this.employeeService.updateEmployee(this.id,empo).subscribe(data =>{
       this.gotoEmployeeList()
     },error => console.log(error));
